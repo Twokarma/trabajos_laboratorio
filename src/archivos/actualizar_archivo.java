@@ -4,8 +4,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 public class actualizar_archivo {
+	public static void sobreescribir_archivo(String texto) {
+        try {
+			
+			// en este caso va a sobreescribir encima del archivo ya creado
+			FileWriter escribir= new FileWriter("mi_archivo.txt");
+			escribir.write(texto);
+			escribir.close();
+			System.out.println("Edicion correcta");
+			
+		}catch(IOException error) {// se puede colocar error o e, depende de uno mismo
+			System.out.println("Error de escritura");
+		}
+	}
 	
-	public static void Escribir_archivo(String texto) {
+	
+	public static void Escribir_archivo(String texto,int valor) {
          try {
 			
 			// en este caso va a sobreescribir encima del archivo ya creado
@@ -23,10 +37,17 @@ public class actualizar_archivo {
 	
 	
 	public static void main(String[]args) {
+		
 		Scanner leer = new Scanner(System.in);
+		
 		System.out.println("Ingrese el texto: ");
 		String texto = leer.nextLine();  //no lolvidar agregar el nextline para que tome los espacios tambien
-		Escribir_archivo(texto);
+		//sobreescribir_archivo(texto);
+		Escribir_archivo(texto,1);
+		
+		
+		leer.close();
+		
 		
 	}
 	
